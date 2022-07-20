@@ -32,16 +32,16 @@ public class Controller {
 	}
 	
 	@DeleteMapping(path = { "/{id}" })
-	public User delete(@PathVariable("id") int id) {
-		User deletedUsr = null;
+	public int delete(@PathVariable("id") int id) {
+		//User deletedUsr = null;
 		for (User usr : users) {
-			if (usr.getUsrId().equals(id)) {
+			int x = Integer.parseInt(usr.getUsrId());
+			if (x==id){
 				users.remove(usr);
-				deletedUsr = usr;
 				break;
 			}
 		}
-		return deletedUsr;
+		return id;
 	}
 	
 	@PostMapping
